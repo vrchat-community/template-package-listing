@@ -1,3 +1,5 @@
+# Warning! This repo is not yet ready for public use, we've made it public as part of our testing of its functionality. Please wait until this warning is removed before attempting to use it.
+
 # VPM Package Listing Template
 
 Starter for making your own Package Listings, including automation for building and publishing them.
