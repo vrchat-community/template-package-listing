@@ -22,7 +22,6 @@ const PACKAGES = {
 
 const setTheme = () => {
   const isDarkTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
-  console.log(isDarkTheme);
   if (isDarkTheme()) {
     baseLayerLuminance.setValueFor(document.documentElement, StandardLuminance.DarkMode);
   } else {
@@ -48,8 +47,8 @@ const setTheme = () => {
         return;
       }
       if (
-        item.dataset?.packageName?.toLowerCase()?.includes(value) ||
-        item.dataset?.packageId?.toLowerCase()?.includes(value)
+        item.dataset?.packageName?.toLowerCase()?.includes(value.toLowerCase()) ||
+        item.dataset?.packageId?.toLowerCase()?.includes(value.toLowerCase())
       ) {
         item.style.display = 'grid';
       } else {
