@@ -7,7 +7,7 @@
 	],
 	"packages" : [
 		{
-			"name" : "com.vrchat.udonsharp",
+		    "name" : "com.vrchat.udonsharp",
 			"releases" : [
 				{
 					"manifestUrl" : "https://raw.githubusercontent.com/vrchat-community/UdonSharp/releases/1.1.5/Packages/com.vrchat.UdonSharp/package.json",
