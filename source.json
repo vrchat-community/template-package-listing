@@ -1,19 +1,17 @@
 {
-	"name" : "Example Listing",
-	"author" : "developer@vrchat.com",
-	"url" : "https://vrchat-community.github.io/template-package-listing/index.json",
-	"githubRepos": [
-		"vrchat-community/clientsim"
-	],
-	"packages" : [
-		{
-		    "name" : "com.vrchat.udonsharp",
-			"releases" : [
-				{
-					"manifestUrl" : "https://raw.githubusercontent.com/vrchat-community/UdonSharp/releases/1.1.5/Packages/com.vrchat.UdonSharp/package.json",
-					"zipUrl" : "https://vpm.directus.app/assets/dfb5575b-c384-4535-a7a5-b8b90cbaac63?download"
-				}
-			]
-		}
-	]
+    "name":"ExampleListing",
+    "author":"developer@vrchat.com",
+    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
+    "githubRepos":["vrchat-community/clientsim"],
+    "packages":[
+        {
+            "name":"com.vrchat.udonsharp",
+            "releases":[
+                {
+                    "manifestUrl":"https://raw.githubusercontent.com/vrchat-community/UdonSharp/releases/1.1.5/Packages/com.vrchat.UdonSharp/package.json",
+                    "zipUrl":"https://vpm.directus.app/assets/dfb5575b-c384-4535-a7a5-b8b90cbaac63?download"
+                }
+            ]
+        }
+    ]
 }
