@@ -1,6 +1,16 @@
 {
-    "name":"ExampleListing",
-    "author":"developer@vrchat.com",
+    "name":"Example Listing",
+		"author" : {
+			"email": "developer@vrchat.com",
+			"name": "VRChat",
+			"url": "https://hello.vrchat.com"
+		},
+		"description" : "Example listing of VRChat packages",
+		"infoLink": {
+			"url": "http://github.com/vrchat-community/template-package-listing",
+			"text": "View on GitHub"
+		},
+		"bannerUrl": "banner.png",
     "url":"https://vrchat-community.github.io/template-package-listing/index.json",
     "githubRepos":["vrchat-community/clientsim"],
     "packages":[
