@@ -46,6 +46,10 @@ body {
   justify-content: flex-end;
 }
 
+h1 {
+  margin-bottom: 0.5rem;
+}
+
 .caption1 {
   font-size: 1rem;
   color: var(--neutral-foreground-hover);
@@ -116,6 +120,17 @@ body {
   display: block;
   text-decoration: none;
   color: var(--neutral-foreground-rest);
+}
+
+.bannerImage {
+  aspect-ratio: 5 / 1;
+  border-radius: 6px;
+  max-width: 90%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 0.25rem;
 }
 
 .m-0 {

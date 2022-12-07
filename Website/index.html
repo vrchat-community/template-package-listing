@@ -9,10 +9,30 @@
 </head>
 <body>
   <div class="col align-items-center content">
-    <h1>
-      {{ listingInfo.Name }}
-    </h1>
-    <div class="caption1">{{ if listingInfo.Description; listingInfo.Description; end; }}</div>
+    <div id="listingInfo" class="col mb-4 w-100 align-items-center">
+      {{~ if listingInfo.BannerImage; ~}}
+        <div class="bannerImage" style="background-image: url({{ listingInfo.BannerImageUrl }})"></div>
+      {{~ end; ~}}
+      <h1>
+        {{~ listingInfo.Name ~}}
+      </h1>
+      {{~ if listingInfo.Description; ~}}
+        <div class="caption1 mb-2">{{ listingInfo.Description }}</div>
+      {{~ end; ~}}
+      <div class="col align-items-center">
+        {{~ if listingInfo.Author.Email; ~}}
+        <fluent-tooltip id="publishedByTooltip" anchor="publishedByText">
+          {{ listingInfo.Author.Email }}
+        </fluent-tooltip>
+        {{~ end; ~}}
+        <div class="caption1 mb-2" id="publishedByText">Published by <a href="{{listingInfo.Author.Url}}" target="_blank">{{ listingInfo.Author.Name }}</a></div>
+        {{~ if listingInfo.InfoLink.Url ~}}
+          <div class="caption1" id="publishedByText">
+            <a href="{{listingInfo.InfoLink.Url}}" target="_blank">{{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
+          </div>
+        {{~ end; ~}}
+      </div>
+    </div>
     <div class="addToVccBlock mt-4 row align-items-center">
       <fluent-text-field aria-readonly="true" id="vccUrlField" class="vccUrlField" readonly value="{{ listingInfo.Url }}">
       </fluent-text-field>
@@ -174,9 +194,11 @@
         {{~ end ~}}
       </fluent-data-grid>
     </fluent-card>
-    <div class="footer col">
-      <div class="caption1">See on <a href="{{ listingInfo.ListingRepoUrl }}" target="_blank">GitHub</a></div>
-    </div>
+    {{~ if listingInfo.InfoLink.Url ~}}
+      <div class="caption1" id="publishedByText">
+        <a href="{{listingInfo.InfoLink.Url}}" target="_blank">{{ if listingInfo.InfoLink.Text; listingInfo.InfoLink.Text; else; "Lean More"; end; }}</a>
+      </div>
+    {{~ end; ~}}
   </div>
   <script type="module" src="app.js"></script>
 </body>
