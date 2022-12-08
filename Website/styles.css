@@ -18,6 +18,10 @@ body {
   color: var(--neutral-foreground-rest);
 }
 
+.hidden {
+  display: none !important;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -131,6 +135,17 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 0.25rem;
+}
+
+.badge {
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--neutral-fill-hover);
+}
+
+.packageInfoModalControl {
+  max-height: 90%;
+  --dialog-height: 550px;
 }
 
 .m-0 {

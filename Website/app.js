@@ -15,7 +15,14 @@ const PACKAGES = {
       {{~ for dependency in package.Dependencies ~}}
         "{{ dependency.Name }}": "{{ dependency.Version }}",
       {{~ end ~}}
-    }
+    },
+    keywords: [
+      {{~ for keyword in package.Keywords ~}}
+        "{{ keyword }}",
+      {{~ end ~}}
+    ],
+    license: "{{ package.License }}",
+    licensesUrl: "{{ package.LicensesUrl }}",
   },
 {{~ end ~}}
 };
@@ -126,12 +133,20 @@ const setTheme = () => {
     packageInfoModal.hidden = true;
   });
 
+  // Fluent dialogs use nested shadow-rooted elements, so we need to use JS to style them
+  const modalControl = packageInfoModal.shadowRoot.querySelector('.control');
+  modalControl.style.maxHeight = "90%";
+  modalControl.style.transition = 'height 0.2s ease-in-out';
+  modalControl.style.overflowY = 'hidden';
+
   const packageInfoName = document.getElementById('packageInfoName');
   const packageInfoId = document.getElementById('packageInfoId');
   const packageInfoVersion = document.getElementById('packageInfoVersion');
   const packageInfoDescription = document.getElementById('packageInfoDescription');
   const packageInfoAuthor = document.getElementById('packageInfoAuthor');
   const packageInfoDependencies = document.getElementById('packageInfoDependencies');
+  const packageInfoKeywords = document.getElementById('packageInfoKeywords');
+  const packageInfoLicense = document.getElementById('packageInfoLicense');
 
   const rowAddToVccButtons = document.querySelectorAll('.rowAddToVccButton');
   rowAddToVccButtons.forEach(button => {
@@ -149,6 +164,28 @@ const setTheme = () => {
       packageInfoDescription.textContent = packageInfo.description;
       packageInfoAuthor.textContent = packageInfo.author.name;
       packageInfoAuthor.href = packageInfo.author.url;
+
+      if ((packageInfo.keywords?.length ?? 0) === 0) {
+        packageInfoKeywords.parentElement.classList.add('hidden');
+      } else {
+        packageInfoKeywords.parentElement.classList.remove('hidden');
+        packageInfoKeywords.innerHTML = null;
+        packageInfo.keywords.forEach(keyword => {
+          const keywordDiv = document.createElement('div');
+          keywordDiv.classList.add('me-2', 'mb-2', 'badge');
+          keywordDiv.textContent = keyword;
+          packageInfoKeywords.appendChild(keywordDiv);
+        });
+      }
+
+      if (!packageInfo.license?.length && !packageInfo.licensesUrl?.length) {
+        packageInfoLicense.parentElement.classList.add('hidden');
+      } else {
+        packageInfoLicense.parentElement.classList.remove('hidden');
+        packageInfoLicense.textContent = packageInfo.license ?? 'See License';
+        packageInfoLicense.href = packageInfo.licensesUrl ?? '#';
+      }
+
       packageInfoDependencies.innerHTML = null;
       Object.entries(packageInfo.dependencies).forEach(([name, version]) => {
         const depRow = document.createElement('li');
@@ -158,6 +195,11 @@ const setTheme = () => {
       });
 
       packageInfoModal.hidden = false;
+
+      setTimeout(() => {
+        const height = packageInfoModal.querySelector('.col').clientHeight;
+        modalControl.style.setProperty('--dialog-height', `${height + 14}px`);
+      }, 1);
     });
   });
 
