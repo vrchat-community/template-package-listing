@@ -143,11 +143,6 @@ h1 {
   background-color: var(--neutral-fill-hover);
 }
 
-.packageInfoModalControl {
-  max-height: 90%;
-  --dialog-height: 550px;
-}
-
 .m-0 {
   margin: 0;
 }
