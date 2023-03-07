@@ -1,19 +1,26 @@
 {
-    "name":"Curated",
-    "description":"Useful Packages for VRChat Content Development, Picked by the Creators Team",
-    "author":{
-        "email":"developer@vrchat.com",
-        "name":"VRChat",
-        "url":"https://hello.vrchat.com"
-    },
-    "infoLink":{
-        "url":"http://github.com/vrchat-community/vpm-listing-curated",
-        "text":"View on GitHub"
-    },
-    "bannerUrl":"banner.png",
-    "url":"https://vrchat-community.github.io/vpm-listing-curated/index.json",
-    "githubRepos":[
-        "vrchat-community/clientsim",
-        "vrchat-community/udonsharp"
+    "name":"Example Listing",
+		"author" : {
+			"email": "developer@vrchat.com",
+			"name": "VRChat",
+			"url": "https://hello.vrchat.com"
+		},
+		"description" : "Example listing of VRChat packages",
+		"infoLink": {
+			"url": "http://github.com/vrchat-community/template-package-listing",
+			"text": "View on GitHub"
+		},
+		"bannerUrl": "banner.png",
+    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
+    "githubRepos":["vrchat-community/clientsim"],
+    "packages":[
+        {
+            "name":"com.vrchat.udonsharp",
+            "releases":[
+                    "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.7/com.vrchat.UdonSharp.zip",
+                    "https://github.com/vrchat-community/UdonSharp/releases/download/1.1.6/com.vrchat.UdonSharp-1.1.6.zip",
+                
+            ]
+        }
     ]
 }
