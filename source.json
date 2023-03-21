@@ -1,5 +1,6 @@
 {
     "name":"Example Listing",
+    "id":"com.vrchat.example-listing"
     "author":{
         "email":"developer@vrchat.com",
         "name":"VRChat",
