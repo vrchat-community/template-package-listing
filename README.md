@@ -1,5 +1,3 @@
-# Warning! This repo is not yet ready for public use, we've made it public as part of our testing of its functionality. Please wait until this warning is removed before attempting to use it.
-
 # VPM Package Listing Template
 
 Starter for making your own Package Listings, including automation for building and publishing them.
@@ -8,20 +6,28 @@ Once you're all set up, you'll be able to update the `source.json` file, and gen
 
 ## ▶ Getting Started
 
-Press [![Use This Template](https://user-images.githubusercontent.com/737888/185467681-e5fdb099-d99f-454b-8d9e-0760e5a6e588.png)](https://github.com/vrchat-community/template-package-listing/generate)
+* Press [![Use This Template](https://user-images.githubusercontent.com/737888/185467681-e5fdb099-d99f-454b-8d9e-0760e5a6e588.png)](https://github.com/vrchat-community/template-package-listing/generate)
 to start a new GitHub project based on this template, and follow the directions there. 
-
+  * Choose a fitting repository name and description.
+  * Set the visibility to 'Public'. You can also choose 'Private' and change it later.
+  * You don't need to select 'Include all branches.'
+* Edit this project on GitHub in your web browser, or clone it repository locally using Git.
+  * If you're unfamiliar with Git and GitHub, [visit GitHub's documentation](https://docs.github.com/en/get-started/quickstart/
 ## Setting up the Automation
 
-TBD
+You'll need to edit some of the files in this template, starting with [`source.json`](source.json):
+- Fill out general information about your listing, such as the `name`, `id`, `author`, `url`, etc.
+- If you'd like to include packages hosted on GitHub, specify them in `githubRepos`.
+- If you'd like to include packages hosted elsewhere as a `.zip` file, specify them in `packages`.
+  - You can safely remove either `githubRepos` or `packages` if you're not using them. 
 
 ## 📃 Rebuilding the Listing
 
-TBD
+Whenever you make a change to the `main` branch, or when you trigger it manually, the 'Build Repo Listing' action will make a new index of all the releases available and publish them as a website hosted fore free on GitHub Pages. This listing can be used by the VPM to keep your package up to date, and the generated index page can serve as a simple landing page with info for your package. The URL for your package will be in the format https://username.github.io/repo-name.
 
 ## 🏠 Customizing the Landing Page
 
-TBD
+The contents of the `Website` directory can be customized to change the appearance of the landing page. Most of the information will be automatically filled in with information from [`source.json`](source.json). Customizing the landing page by hand is not required.
 
 ## Technical Stuff
 
