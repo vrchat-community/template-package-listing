@@ -1,6 +1,7 @@
 {
     "name":"Example Listing",
     "id":"com.vrchat.example-listing",
+    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
     "author":{
         "email":"developer@vrchat.com",
         "name":"VRChat",
@@ -12,7 +13,6 @@
         "text":"View on GitHub"
     },
     "bannerUrl":"banner.png",
-    "url":"https://vrchat-community.github.io/template-package-listing/index.json",
     "githubRepos":[
         "vrchat-community/clientsim"
     ],
