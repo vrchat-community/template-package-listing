@@ -2,7 +2,7 @@
 
 Starter for making your own Package Listings, including automation for building and publishing them.
 
-Once you're all set up, you'll be able to update the `source.json` file, and generate a listing which works in the VPM for delivering updates for all the listed packages.
+Once you're all set up, you'll be able to update the [`source.json`](source.json) file, and generate a listing which works in the VPM for delivering updates for all the listed packages.
 
 ## ▶ Getting Started
 
@@ -17,12 +17,12 @@ to start a new GitHub project based on this template, and follow the directions 
 ## Setting up the Automation
 
 You'll need to edit some of the files in this template, starting with [`source.json`](source.json):
-- Fill out general information about your listing, such as the `name`, `id`, `author`, `description`, etc.
-- Make sure to update the "url" field on line 4, replacing "vrchat-community" with your GitHub username, and "template-package-listing" with your repo name. This is the link that will be used to download your listing once it's published by GitHub. For example, the user "thupper" who made a repo called "thupper-listing" would update the url to "https://thupper.github.io/thupper-listing/index.json".
-- Update the "url" within "infoLink" (on line 11) with the url of this new repo you've created.
-- If you'd like to include packages hosted on GitHub, specify them in `githubRepos`.
-- If you'd like to include packages hosted elsewhere as a `.zip` file, specify them in `packages`.
-  - You can safely remove either `githubRepos` or `packages` if you're not using them. 
+- Fill out general information about your listing, such as the [`name`](source.json#L2), [`id`](source.json#L3), [`author`](source.json#L5), [`description`](source.json#L10), etc.
+- Make sure to update the ["url"](source.json#L4) field on line 4, replacing "vrchat-community" with your GitHub username, and "template-package-listing" with your repo name. This is the link that will be used to download your listing once it's published by GitHub. For example, the user "thupper" who made a repo called "thupper-listing" would update the url to "https://thupper.github.io/thupper-listing/index.json".
+- Update the "url" within ["infoLink"](source.json#L11) (on line 11) with the url of this new repo you've created.
+- If you'd like to include packages hosted on GitHub, specify them in [`githubRepos`](source.json#L16).
+- If you'd like to include packages hosted elsewhere as a `.zip` file, specify them in [`packages`](source.json#L19).
+  - You can safely remove either [`githubRepos`](source.json#L16) or [`packages`](source.json#L19) if you're not using them. 
 - Finally, go to the "Settings" page for your repo, then choose "Pages", and look for the heading "Build and deployment". Change the "Source" dropdown from "Deploy from a branch" to "GitHub Actions".
 
 ## 📃 Rebuilding the Listing
@@ -40,4 +40,4 @@ You are welcome to make your own changes to the automation process to make it fi
 ### Build Listing
 [build-listing.yml](.github/workflows/build-listing.yml)
 
-This is a composite action which builds a vpm-compatible [Repo Listing](https://vcc.docs.vrchat.com/vpm/repos) based on the items you've added to your `source.json` file. you've created. In order to find all your releases and combine them into a listing, it checks out [another repository](https://github.com/vrchat-community/package-list-action) which has a [Nuke](https://nuke.build/) project which includes the VPM core lib to have access to its types and methods. This project will be expanded to include more functionality in the future - for now, the action just calls its `BuildRepoListing` target, which calls `RebuildHomePage` when it completes. If you wanted to make an action that just rebuilds the home page, you could call that directly instead - just copy the existing call and replace the target names.
+This is a composite action which builds a vpm-compatible [Repo Listing](https://vcc.docs.vrchat.com/vpm/repos) based on the items you've added to your [`source.json`](source.json) file. you've created. In order to find all your releases and combine them into a listing, it checks out [another repository](https://github.com/vrchat-community/package-list-action) which has a [Nuke](https://nuke.build/) project which includes the VPM core lib to have access to its types and methods. This project will be expanded to include more functionality in the future - for now, the action just calls its `BuildRepoListing` target, which calls `RebuildHomePage` when it completes. If you wanted to make an action that just rebuilds the home page, you could call that directly instead - just copy the existing call and replace the target names.
