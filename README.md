@@ -12,7 +12,7 @@ to start a new GitHub project based on this template, and follow the directions 
   * Set the visibility to 'Public'. You can also choose 'Private' and change it later.
   * You don't need to select 'Include all branches.'
 * Edit this project on GitHub in your web browser, or clone it repository locally using Git.
-  * If you're unfamiliar with Git and GitHub, [visit GitHub's documentation](https://docs.github.com/en/get-started/quickstart/
+  * If you're unfamiliar with Git and GitHub, [visit GitHub's documentation](https://docs.github.com/en/get-started/quickstart/).
   
 ## Setting up the Automation
 
