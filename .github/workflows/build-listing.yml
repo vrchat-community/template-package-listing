@@ -58,7 +58,18 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{env.listPublishDirectory}}
+
+      - name: Deploy To Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        id: deployment-cloudflare
+        if: env.CLOUDFLARE_PAGES_PROJECT_NAME != ''
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy $GITHUB_WORKSPACE/${{env.listPublishDirectory}} --project-name={{ env.CLOUDFLARE_PAGES_PROJECT_NAME }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Deploy to GitHub Pages
-        id: deployment
+        if: env.CLOUDFLARE_PAGES_PROJECT_NAME == ''
+        id: deployment-github
         uses: actions/deploy-pages@v4
