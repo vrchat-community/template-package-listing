@@ -63,7 +63,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy $GITHUB_WORKSPACE/${{env.listPublishDirectory}} --project-name=${{vars.CLOUDFLARE_PAGES_PROJECT_NAME}}
+          command: pages deploy ${{github.workspace}}/${{env.listPublishDirectory}} --project-name=${{vars.CLOUDFLARE_PAGES_PROJECT_NAME}}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Pages
