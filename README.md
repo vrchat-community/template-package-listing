@@ -33,6 +33,16 @@ Whenever you make a change to the `main` branch, or when you trigger it manually
 
 The contents of the `Website` directory can be customized to change the appearance of the landing page. Most of the information will be automatically filled in with information from [`source.json`](source.json). Customizing the landing page by hand is not required.
 
+## Using Cloudflare Pages (Optional)
+
+If you want to use Cloudflare Pages instead of Github Pages, please follow these steps:
+
+1. Follow [Cloudflare Docs](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/#deploy-with-wrangler) to configure your `id` and `token` in the `Repository secrets`
+2. Trun to `Repository variables` and add a new variable named `CLOUDFLARE_PAGES_PROJECT_NAME` with value to be your pages project name
+3. Trigger the workflow to run and observe your Cloudflare Dashboard.
+
+Note that the Cloudflare Pages deployment is prior to Github Pages deployment (i.e. we will not deploy to Github Pages once configured `CLOUDFLARE_PAGES_PROJECT_NAME`).
+
 ## Technical Stuff
 
 You are welcome to make your own changes to the automation process to make it fit your needs, and you can create Pull Requests if you have some changes you think we should adopt. Here's some more info on the included automation:
